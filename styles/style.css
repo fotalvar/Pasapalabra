@@ -63,8 +63,8 @@ body {
 }
 
 .username {
-    width: 50vw;
-    max-width: 300px;
+    width: 80vw;
+    max-width: 350px;
     font-size: 30px;
     height: 50px;
     border-style: none;
