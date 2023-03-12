@@ -407,6 +407,11 @@ let incorrectAnswers = 0;
 let pasapalabraListAnswers = [];
 
 playButton.addEventListener('click', () => {
+    username.value = username.value.replace(/\s/g, '');
+    if (username.value <= 0){
+        username.placeholder = "El nombre no es correcto";
+        return;
+    }
     if (username.value.length > 3) {
         popUpWindow.style.display = "none";
         gameBox.style.display = "flex";
