@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="./styles/style.css" />
+    <title>Pasapalabra</title>
+</head>
+
+<body>
+    <div class="popUpWindow fadeInUp">
+        <div class="instructionBox">
+            <h1 class="title">Pasapalabra</h1>
+            <h2>¡Hola! y bienvenido/a al Rosco de Pasapalabra</h2>
+            <div class="gameRules">
+                <p><b>NORMAS DEL JUEGO:</b></p>
+                <p>Deberás responder
+                    diferentes preguntas en orden alfabético intentando acertar el mayor número posible. Cada acierto
+                    sumará 1 punto que te permitirá acceder al Ranking. Si no sabes una respuesta puedes pulsa en el
+                    botón "Pasapalabra" y podrás contestarla más adelante.</p>
+                <p>¡Mucha suerte!</p>
+            </div>
+            <input type="text" class="username" minlength="3" maxlength="8"  placeholder="Tu nombre">
+            <button class="playButton">¡Comenzar!</button>
+            <div class="rankingBox slide-in-left">
+                <p class="rankingTitle">Ranking</p>
+                <p class="rankingNames"></p>
+            </div>
+        </div>
+    </div>
+    <div class="gameBox">
+        <div class="counterBox">
+            <div class="counter rightAnswersCounter">
+                <p>Aciertos</p>
+                <p class="correctAnswersCounter">0</p>
+            </div>
+            <div class="counter failedAnswersCounter">
+                <p>Fallos</p>
+                <p class="incorrectAnswersCounter">0</p>
+            </div>
+
+        </div>
+        <div class="lettersContainer">
+            <ul class="lettersBox">
+                <li class="letter">A</li>
+                <li class="letter">B</li>
+                <li class="letter">C</li>
+                <li class="letter">D</li>
+                <li class="letter">E</li>
+                <li class="letter">F</li>
+                <li class="letter">G</li>
+                <li class="letter">H</li>
+                <li class="letter">I</li>
+                <li class="letter">J</li>
+                <li class="letter">K</li>
+                <li class="letter">L</li>
+                <li class="letter">M</li>
+            </ul>
+            <ul class="lettersBox">
+                <li class="letter">N</li>
+                <li class="letter">O</li>
+                <li class="letter">P</li>
+                <li class="letter">Q</li>
+                <li class="letter">R</li>
+                <li class="letter">S</li>
+                <li class="letter">T</li>
+                <li class="letter">U</li>
+                <li class="letter">V</li>
+                <li class="letter">W</li>
+                <li class="letter">X</li>
+                <li class="letter">Y</li>
+                <li class="letter">Z</li>
+            </ul>
+        </div>
+        <div class="askBox">
+            <div class="cuestionContainer">
+                <p class="question">pregunta</p>
+            </div>
+            <div class="answersRow">
+                <input type="text" class="userAnswer" autofocus>
+                <div class="answersButtonRow">
+                    <button class="answerButton sendAnswerButton">Enviar respuesta</button>
+                    <button class="answerButton pasapalabraButton">Pasapalabra</button>
+                </div>
+            </div>
+        </div>
+        <div class="resultBox">
+            <div class="resultRow">
+                <p class="resultTitle">Resultados</p>
+                <p class="resultText">Texto de resultado</p>
+                <p class="resultCorrectAnwsers">¿Quieres volver a jugar?</p>
+                <button class="playAgainButton">Volver a jugar</button>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+
+<script type="text/javascript" src="./js/main.js"></script>
+<script type="text/javascript" src="./js/questions.js"></script>
+</body>
+
+</html>
