@@ -11,6 +11,7 @@
 </head>
 
 <body>
+    <audio class="audioPlayer" src="./audio/intro.mp3" autoplay="autoplay"></audio>
     <div class="popUpWindow fadeInUp">
         <div class="instructionBox">
             <h1 class="title">Pasapalabra</h1>
@@ -96,10 +97,20 @@
             </div>
 
         </div>
+        <table class="userBox">
+            <tr>
+                <td><p>JUGADOR: </p></td>
+                <td><p class="playingUser">Fede</p></td>
+            </tr>
+        </table>
     </div>
-</body>
-
-
+    <table class="musicBox">
+        <audio class="answersSoundEffects"></audio>
+        <tr>
+            <td><p>MÚSICA: </p></td>
+            <td><p class="switchAudioPlayerStatus">Si</p></td>
+        </tr>
+    </table>
 <script type="text/javascript" src="./js/main.js"></script>
 <script type="text/javascript" src="./js/questions.js"></script>
 </body>

@@ -327,6 +327,51 @@ body {
     filter: drop-shadow(0px 10px 13px #21366869);
 }
 
+.userBox{
+    position: absolute;
+    left: 0px;
+    top: 20px;
+    color: white;
+    padding: 20px 20px 20px 10px;
+    border-radius: 0px 20px 20px 0px;
+    border-right: 0px;
+    border-left: 0px;
+    background-color: #ffffff6f;
+    box-shadow: 0px 0px 19px 10px #1836822b;
+    font-size: 20px;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.224); 
+
+
+}
+
+.userBox p{
+    margin: 0;
+}
+
+.switchAudioPlayerStatus{
+    cursor: pointer;
+}
+
+.musicBox{
+    position: absolute;
+    right: 0px;
+    top: 20px;
+    color: white;
+    padding: 20px 20px 20px 10px;
+    border-radius: 20px 0px 0px 20px;
+    border-right: 0px;
+    border-left: 0px;
+    background-color: #ffffff6f;
+    box-shadow: 0px 0px 19px 10px #1836822b;
+    font-size: 20px;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.224); 
+
+}
+
+.musicBox p{
+    margin: 0;
+}
+
 .fadeInUp {
     -webkit-animation-name: fadeInUp;
     animation-name: fadeInUp;

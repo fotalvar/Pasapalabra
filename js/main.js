@@ -32,6 +32,11 @@ const resultBox = document.querySelector('.resultBox')
 const resultText = document.querySelector('.resultText')
 const resultTitle = document.querySelector('.resultTitle')
 const username = document.querySelector('.username')
+const playingUser = document.querySelector('.playingUser')
+const audioPlayer = document.querySelector('.audioPlayer')
+const switchAudioPlayerStatus = document.querySelector('.switchAudioPlayerStatus')
+const answersSoundEffects = document.querySelector('.answersSoundEffects')
+
 
 let unanswerQuestion = 0;
 let questionPack = Math.floor(Math.random() * 3);
@@ -41,7 +46,8 @@ let pasapalabraListAnswers = [];
 
 playButton.addEventListener('click', () => {
     username.value = username.value.replace(/\s/g, '');
-    if (username.value <= 0){
+    playingUser.textContent = username.value;
+    if (username.value <= 0) {
         username.placeholder = "El nombre no es correcto";
         return;
     }
@@ -50,6 +56,11 @@ playButton.addEventListener('click', () => {
         gameBox.style.display = "flex";
         gameBox.classList.add("fadeIn");
         askBox.classList.add("slide-in-elliptic-top-fwd");
+        audioPlayer.setAttribute('src', './audio/rosco.mp3');
+        audioPlayer.addEventListener('ended', function() {
+            this.currentTime = 0;
+            this.play();
+        }, false);
         userAnswer.focus();
         showNextUnanswerQuestion();
     } else {
@@ -58,11 +69,26 @@ playButton.addEventListener('click', () => {
 
 });
 
+switchAudioPlayerStatus.addEventListener('click', () => {
+    if (switchAudioPlayerStatus.textContent === "No") {
+        switchAudioPlayerStatus.textContent = "Si";
+        audioPlayer.play();
+    } else {
+        switchAudioPlayerStatus.textContent = "No";
+        audioPlayer.pause();
+    }
+});
+
+
+
+
 const sendAnswerButton = document.querySelector('.sendAnswerButton')
 
 sendAnswerButton.addEventListener('click', () => {
     if (questions[unanswerQuestion].answer[questionPack] === (userAnswer.value).toLowerCase()) {
         letterBox[unanswerQuestion].style.backgroundColor = "#81a063";
+        answersSoundEffects.setAttribute('src', './audio/correct.mp3');
+        answersSoundEffects.play();
         questions[unanswerQuestion].status = 1;
         correctAnswers++;
         correctAnswersCounter.textContent = correctAnswers
@@ -71,6 +97,8 @@ sendAnswerButton.addEventListener('click', () => {
         return;
     } else {
         letterBox[unanswerQuestion].style.backgroundColor = "#b75d5d";
+        answersSoundEffects.setAttribute('src', './audio/fail.mp3');
+        answersSoundEffects.play();
         questions[unanswerQuestion].status = 2;
         userAnswer.value = "";
         incorrectAnswers++;
@@ -84,6 +112,8 @@ const pasapalabraButton = document.querySelector('.pasapalabraButton')
 
 pasapalabraButton.addEventListener('click', () => {
     letterBox[unanswerQuestion].style.backgroundColor = "#e0a838";
+    answersSoundEffects.setAttribute('src', './audio/pasapalabra.mp3');
+    answersSoundEffects.play();
     questions[unanswerQuestion].status = 3;
     userAnswer.value = "";
     addToPasapalabraListAnswers()
@@ -123,6 +153,9 @@ const showNextUnanswerQuestion = () => {
 
 const endGame = () => {
     askBox.style.display = "none";
+    audioPlayer.pause();
+    answersSoundEffects.setAttribute('src', './audio/end.mp3');
+    answersSoundEffects.play();
     resultBox.style.display = "flex";
     resultBox.classList.add("slide-in-elliptic-top-fwd");
 
@@ -158,6 +191,8 @@ playAgainButton.addEventListener('click', () => {
     username.value = "";
     askBox.style.display = "flex";
     resultBox.style.display = "none";
+    gameBox.style.display = "none";
+    audioPlayer.setAttribute('src', './audio/intro.mp3');
     showRanking()
     return;
 });
@@ -169,13 +204,13 @@ const addUserRanking = (userName, points) => {
 }
 
 const showRanking = () => {
-    userRanking.sort((a, b) => b.points - a.points); 
-    let rankingString = ""; 
+    userRanking.sort((a, b) => b.points - a.points);
+    let rankingString = "";
     userRanking.forEach(user => {
-        rankingString += `${user.userName} - ${user.points} puntos <br>`; 
+        rankingString += `${user.userName} - ${user.points} puntos <br>`;
     });
-    const rankingNames = document.querySelector(".rankingNames"); 
-    rankingNames.innerHTML = rankingString;  
+    const rankingNames = document.querySelector(".rankingNames");
+    rankingNames.innerHTML = rankingString;
 }
 
 showRanking()
