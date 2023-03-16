@@ -58,6 +58,7 @@ playButton.addEventListener('click', () => {
         gameBox.classList.add("fadeIn");
         askBox.classList.add("slide-in-elliptic-top-fwd");
         audioPlayer.setAttribute('src', './audio/rosco.mp3');
+        switchAudioPlayerStatus.textContent = "Si";
         audioPlayer.addEventListener('ended', function() {
             this.currentTime = 0;
             this.play();
@@ -160,6 +161,7 @@ const showNextUnanswerQuestion = () => {
 const endGame = () => {
     askBox.style.display = "none";
     audioPlayer.pause();
+    switchAudioPlayerStatus.textContent = "No";
     resultSoundEffects.setAttribute('src', './audio/end.mp3');
     resultSoundEffects.play();
     resultBox.style.display = "flex";
@@ -200,6 +202,7 @@ playAgainButton.addEventListener('click', () => {
     gameBox.style.display = "none";
     audioPlayer.setAttribute('src', './audio/intro.mp3');
     audioPlayer.pause();
+    switchAudioPlayerStatus.textContent = "No";
     showRanking()
     return;
 });
