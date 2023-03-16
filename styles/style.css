@@ -9,7 +9,7 @@ body {
     opacity: 1
 }
 
-.popUpWindow {
+.pop-up-window {
     width: 100vw;
     height: 100vh;
 }
@@ -23,7 +23,7 @@ body {
     padding: 10px;
 }
 
-.instructionBox {
+.instruction-box {
     display: flex;
     flex-direction: column;
     text-align: justify;
@@ -34,24 +34,24 @@ body {
     padding-top: 100px;
 }
 
-.instructionBox p {
+.instruction-box p {
     margin: 10px;
     line-height: 30px;
     max-width: 500px;
     padding: 10px;
 }
 
-.instructionBox h2 {
+.instruction-box h2 {
     text-align: center;
     font-size: 20px;
 }
 
-.instructionBox h1 {
+.instruction-box h1 {
     text-align: center;
     margin: 5px;
 }
 
-.gameRules {
+.game-rules {
     border-color: rgba(255, 255, 255, 0.22);
     background-color: #ffffff20;
     border-width: 1px;
@@ -73,7 +73,7 @@ body {
     font-family: 'Sofia Sans Semi Condensed', sans-serif;
 }
 
-.playButton {
+.play-button {
     margin-block: 20px;
     border-radius: 10px;
     height: 50px;
@@ -86,7 +86,7 @@ body {
 
 }
 
-.playButton:hover {
+.play-button:hover {
     background-color: #85b646;
     border: none;
     color: white;
@@ -95,12 +95,12 @@ body {
 }
 
 @media screen and (max-width: 1000px) {
-    .rankingBox {
+    .ranking-box {
         display: none !important;
     }
 }
 
-.rankingBox {
+.ranking-box {
     position: absolute;
     left: 0px;
     background-color: rgb(243, 243, 243);
@@ -109,23 +109,23 @@ body {
     border-radius: 0px 20px 20px 0px;
 }
 
-.rankingTitle {
+.ranking-title {
     font-size: 30px;
     font-family: 'Fredoka One', cursive;
 }
 
-.rankingNames {
+.ranking-names {
     text-align: justify;
 }
 
-.gameBox {
+.game-box {
     display: none;
     height: 100vh;
     width: 100vw;
     flex-direction: column;
 }
 
-.counterBox {
+.counter-box {
     margin-top: 50px;
     display: flex;
     flex-direction: row;
@@ -154,18 +154,18 @@ body {
     margin: 0px;
 }
 
-.rightAnswersCounter {
+.right-answers-counter {
     color: white;
     background-color: #81a063;
 
 }
 
-.failedAnswersCounter {
+.failed-answers-counter {
     color: white;
     background-color: #b75d5d;
 }
 
-.lettersContainer {
+.letters-container {
     border-right: 0px;
     border-left: 0px;
     background-color: #ffffff6f;
@@ -175,7 +175,7 @@ body {
 
 }
 
-.lettersBox {
+.letters-box {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
@@ -190,21 +190,21 @@ body {
     width: 60px;
     height: 60px;
     background-color: #6895cf;
-    border-color: white;
+    border: solid 2px white;
     border-radius: 50%;
     color: white;
     justify-content: center;
     align-items: center;
     font-family: 'Fredoka One', cursive;
-    font-size: 20px;
+    font-size: 1.5rem;
     box-shadow: 0px 5px 7px 0px rgba(0, 0, 0, 0.145);
 
 }
 
-.askBox {
+.ask-box {
     display: flex;
     flex-direction: column;
-    padding: 20px 0px 0px 0px;
+    padding: 50px 0px 0px 0px;
     justify-content: center;
     align-items: center;
     margin-inline: auto;
@@ -212,7 +212,7 @@ body {
     min-width: 450px;
 }
 
-.cuestionContainer {
+.cuestion-container {
     text-align: center;
     font-size: 20px;
     background-color: #ffffffa6;
@@ -226,7 +226,7 @@ body {
     padding: 0px 30px 0px 30px;
 }
 
-.answersRow {
+.answers-row {
     background-color: #ffffff6f;
     border-radius: 0px 0px 20px 20px;
     display: flex;
@@ -238,7 +238,7 @@ body {
     gap: 10px;
 }
 
-.userAnswer {
+.user-answer {
     width: 90%;
     font-size: 30px;
     height: 50px;
@@ -248,12 +248,12 @@ body {
     font-family: 'Sofia Sans Semi Condensed', sans-serif;
 }
 
-.userAnswer:focus {
+.user-answer:focus {
     color: #6f9bd5;
     outline: none;
 }
 
-.answersButtonRow {
+.answers-button-row {
     display: flex;
     width: 90%;
     flex-direction: row;
@@ -261,7 +261,7 @@ body {
     justify-content: space-between;
 }
 
-.answerButton {
+.answer-button {
     height: 50px;
     width: 100%;
     font-size: 15px;
@@ -274,13 +274,13 @@ body {
 
 }
 
-.answerButton:hover {
+.answer-button:hover {
     background-color: #e4e2df;
     color: black;
     font-size: 22px;
 }
 
-.resultBox {
+.result-box {
     display: none;
     flex-direction: column;
     padding: 30px 20px 30px 20px;
@@ -298,18 +298,23 @@ body {
     border-style: double;
 }
 
-.resultTitle {
+.result-title {
     color: #ffffff;
-    font-size: 30px;
+    margin-block: 0;
+    font-size: 50px;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.224); 
 }
 
-.resultText {
+.result-row {
+    max-width: 30vw;
+}
+
+.result-text {
     padding: 5%;
     font-size: 20px;
 }
 
-.playAgainButton {
+.play-again-button {
     border-radius: 10px;
     height: 50px;
     width: 200px;
@@ -319,7 +324,7 @@ body {
     font-family: 'Sofia Sans Semi Condensed', sans-serif;
 }
 
-.playAgainButton:hover {
+.play-again-button:hover {
     background-color: #85b646;
     border: none;
     color: white;
@@ -327,61 +332,61 @@ body {
     filter: drop-shadow(0px 10px 13px #21366869);
 }
 
-.userBox{
+.user-box{
     position: absolute;
-    left: 0px;
-    top: 20px;
+    left: 0;
+    top: 0;
     color: white;
-    padding: 20px 20px 20px 10px;
-    border-radius: 0px 20px 20px 0px;
+    padding: 10px;
+    border-radius: 0 0 20px 0;
     border-right: 0px;
     border-left: 0px;
     background-color: #ffffff6f;
     box-shadow: 0px 0px 19px 10px #1836822b;
-    font-size: 20px;
+    font-size: 1.1rem;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.224); 
 
 
 }
 
-.userBox p{
+.user-box p{
     margin: 0;
 }
 
-.switchAudioPlayerStatus{
+.switch-audio-player-status{
     cursor: pointer;
 }
 
-.musicBox{
+.music-box{
     position: absolute;
-    right: 0px;
-    top: 20px;
+    right: 0;
+    top: 0;
     color: white;
-    padding: 20px 20px 20px 10px;
-    border-radius: 20px 0px 0px 20px;
+    padding: 10px;
+    border-radius: 0 0 0 20px;
     border-right: 0px;
     border-left: 0px;
     background-color: #ffffff6f;
     box-shadow: 0px 0px 19px 10px #1836822b;
-    font-size: 20px;
+    font-size: 1.1rem;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.224); 
 
 }
 
-.musicBox p{
+.music-box p{
     margin: 0;
 }
 
-.fadeInUp {
-    -webkit-animation-name: fadeInUp;
-    animation-name: fadeInUp;
+.fade-in-up {
+    -webkit-animation-name: fade-in-up;
+    animation-name: fade-in-up;
     -webkit-animation-duration: 1s;
     animation-duration: 1s;
     -webkit-animation-fill-mode: both;
     animation-fill-mode: both;
 }
 
-@-webkit-keyframes fadeInUp {
+@-webkit-keyframes fade-in-up {
     0% {
         opacity: 0;
         -webkit-transform: translate3d(0, 100%, 0);
@@ -395,7 +400,7 @@ body {
     }
 }
 
-@keyframes fadeInUp {
+@keyframes fade-in-up {
     0% {
         opacity: 0;
         -webkit-transform: translate3d(0, 100%, 0);
@@ -409,16 +414,16 @@ body {
     }
 }
 
-.fadeIn {
-    -webkit-animation-name: fadeIn;
-    animation-name: fadeIn;
+.fade-in {
+    -webkit-animation-name: fade-in;
+    animation-name: fade-in;
     -webkit-animation-duration: 1s;
     animation-duration: 1s;
     -webkit-animation-fill-mode: both;
     animation-fill-mode: both;
 }
 
-@-webkit-keyframes fadeIn {
+@-webkit-keyframes fade-in {
     0% {
         opacity: 0;
     }
@@ -428,7 +433,7 @@ body {
     }
 }
 
-@keyframes fadeIn {
+@keyframes fade-in {
     0% {
         opacity: 0;
     }
@@ -510,4 +515,6 @@ body {
       opacity: 1;
     }
   }
-  
+
+  .blink-2{-webkit-animation:blink-2 .9s infinite both;animation:blink-2 .9s infinite both}
+  @-webkit-keyframes blink-2{0%{opacity:1}50%{opacity:.2}100%{opacity:1}}@keyframes blink-2{0%{opacity:1}50%{opacity:.2}100%{opacity:1}}

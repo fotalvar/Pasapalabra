@@ -11,12 +11,12 @@
 </head>
 
 <body>
-    <audio class="audioPlayer" src="./audio/intro.mp3" autoplay="autoplay"></audio>
-    <div class="popUpWindow fadeInUp">
-        <div class="instructionBox">
+    <audio class="audio-player" src="./audio/intro.mp3" autoplay="autoplay"></audio>
+    <div class="pop-up-window fade-in-up">
+        <div class="instruction-box">
             <h1 class="title">Pasapalabra</h1>
             <h2>¡Hola! y bienvenido/a al Rosco de Pasapalabra</h2>
-            <div class="gameRules">
+            <div class="game-rules">
                 <p><b>NORMAS DEL JUEGO:</b></p>
                 <p>Deberás responder
                     diferentes preguntas en orden alfabético intentando acertar el mayor número posible. Cada acierto
@@ -25,27 +25,27 @@
                 <p>¡Mucha suerte!</p>
             </div>
             <input type="text" class="username" minlength="3" maxlength="8"  placeholder="Tu nombre">
-            <button class="playButton">¡Comenzar!</button>
-            <div class="rankingBox slide-in-left">
-                <p class="rankingTitle">Ranking</p>
-                <p class="rankingNames"></p>
+            <button class="play-button">¡Comenzar!</button>
+            <div class="ranking-box slide-in-left">
+                <p class="ranking-title">Ranking</p>
+                <p class="ranking-names"></p>
             </div>
         </div>
     </div>
-    <div class="gameBox">
-        <div class="counterBox">
-            <div class="counter rightAnswersCounter">
+    <div class="game-box">
+        <div class="counter-box">
+            <div class="counter right-answers-counter">
                 <p>Aciertos</p>
-                <p class="correctAnswersCounter">0</p>
+                <p class="correct-answers-counter">0</p>
             </div>
-            <div class="counter failedAnswersCounter">
+            <div class="counter failed-answers-counter">
                 <p>Fallos</p>
-                <p class="incorrectAnswersCounter">0</p>
+                <p class="incorrect-answers-counter">0</p>
             </div>
 
         </div>
-        <div class="lettersContainer">
-            <ul class="lettersBox">
+        <div class="letters-container">
+            <ul class="letters-box">
                 <li class="letter">A</li>
                 <li class="letter">B</li>
                 <li class="letter">C</li>
@@ -60,7 +60,7 @@
                 <li class="letter">L</li>
                 <li class="letter">M</li>
             </ul>
-            <ul class="lettersBox">
+            <ul class="letters-box">
                 <li class="letter">N</li>
                 <li class="letter">O</li>
                 <li class="letter">P</li>
@@ -76,39 +76,40 @@
                 <li class="letter">Z</li>
             </ul>
         </div>
-        <div class="askBox">
-            <div class="cuestionContainer">
+        <div class="ask-box">
+            <div class="cuestion-container">
                 <p class="question">pregunta</p>
             </div>
-            <div class="answersRow">
-                <input type="text" class="userAnswer" autofocus>
-                <div class="answersButtonRow">
-                    <button class="answerButton sendAnswerButton">Enviar respuesta</button>
-                    <button class="answerButton pasapalabraButton">Pasapalabra</button>
+            <div class="answers-row">
+                <input type="text" class="user-answer" autofocus>
+                <div class="answers-button-row">
+                    <button class="answer-button send-answer-button">Enviar respuesta</button>
+                    <button class="answer-button pasapalabra-button">Pasapalabra</button>
                 </div>
             </div>
         </div>
-        <div class="resultBox">
-            <div class="resultRow">
-                <p class="resultTitle">Resultados</p>
-                <p class="resultText">Texto de resultado</p>
-                <p class="resultCorrectAnwsers">¿Quieres volver a jugar?</p>
-                <button class="playAgainButton">Volver a jugar</button>
+        <div class="result-box">
+            <div class="result-row">
+                <audio class="result-sound-effects"></audio>
+                <p class="result-title">Resultados</p>
+                <p class="result-text">Texto de resultado</p>
+                <p class="result-correct-anwsers">¿Quieres volver a jugar?</p>
+                <button class="play-again-button">Volver a jugar</button>
             </div>
 
         </div>
-        <table class="userBox">
+        <table class="user-box">
             <tr>
                 <td><p>JUGADOR: </p></td>
-                <td><p class="playingUser">Usuario</p></td>
+                <td><p class="playing-user">Usuario</p></td>
             </tr>
         </table>
     </div>
-    <table class="musicBox">
-        <audio class="answersSoundEffects"></audio>
+    <table class="music-box">
+        <audio class="answers-sound-effects"></audio>
         <tr>
             <td><p>MÚSICA: </p></td>
-            <td><p class="switchAudioPlayerStatus">No</p></td>
+            <td><p class="switch-audio-player-status">No</p></td>
         </tr>
     </table>
 <script type="text/javascript" src="./js/main.js"></script>
