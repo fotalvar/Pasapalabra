@@ -401,6 +401,18 @@ form {
     animation-fill-mode: both;
 }
 
+.correct-answer-color{
+background-color: #81a063;
+}
+
+.incorrect-answer-color{
+background-color: #b75d5d;
+}
+
+.pasapalabra-answer-color{
+background-color: #e7a63e;
+}
+
 @-webkit-keyframes fade-in-up {
     0% {
         opacity: 0;

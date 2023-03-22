@@ -91,7 +91,7 @@ sendAnswerButton.addEventListener('click', (event) => {
     letterBox[unanswerQuestion].classList.remove("blink-2");
     let failedWord = questions[unanswerQuestion].answer[questionPack];
     if (questions[unanswerQuestion].answer[questionPack] === (userAnswer.value).toLowerCase()) {
-        letterBox[unanswerQuestion].style.backgroundColor = "#81a063";
+        letterBox[unanswerQuestion].classList.add("correct-answer-color");
         answersSoundEffects.setAttribute('src', './audio/correct.mp3');
         answersSoundEffects.play();
         questions[unanswerQuestion].status = 1;
@@ -102,7 +102,7 @@ sendAnswerButton.addEventListener('click', (event) => {
         showNextUnanswerQuestion()
         return;
     } else {
-        letterBox[unanswerQuestion].style.backgroundColor = "#b75d5d";
+        letterBox[unanswerQuestion].classList.add("incorrect-answer-color");
         answersSoundEffects.setAttribute('src', './audio/fail.mp3');
         answersSoundEffects.play();
         questions[unanswerQuestion].status = 2;
@@ -121,7 +121,7 @@ const pasapalabraButton = document.querySelector('.pasapalabra-button')
 pasapalabraButton.addEventListener('click', (event) => {
     event.preventDefault();
     letterBox[unanswerQuestion].classList.remove("blink-2");
-    letterBox[unanswerQuestion].style.backgroundColor = "#e0a838";
+    letterBox[unanswerQuestion].classList.add("pasapalabra-answer-color");
     answersSoundEffects.setAttribute('src', './audio/pasapalabra.mp3');
     answersSoundEffects.play();
     questions[unanswerQuestion].status = 3;
@@ -199,13 +199,15 @@ playAgainButton.addEventListener('click', () => {
     incorrectAnswersCounter.textContent = incorrectAnswers
     correctAnswersCounter.textContent = correctAnswers
     pasapalabraListAnswers = [];
-    for (let i = 0; i < letterBox.length; i++) {
-        letterBox[i].style.backgroundColor = "#6895cf";
-    }
-
     for (let i = 0; i < questions.length; i++) {
         questions[i].status = 0;
     }
+    const elements = document.querySelectorAll('.letter');
+    elements.forEach((element) => {
+      element.classList.remove('correct-answer-color');
+      element.classList.remove('incorrect-answer-color');
+      element.classList.remove('pasapalabra-answer-color');
+    });
     popUpWindow.style.display = "block"
     username.value = "";
     askBox.style.display = "flex";
@@ -252,7 +254,7 @@ const showWrongAnswerMessage = (failedWord) => {
 let timeLeft = 300;
 let countdownTimeout;
 
-function countdown() {
+const countdown = () => {
 	timeLeft--;
 	document.querySelector(".seconds").innerHTML = String(timeLeft);
 	if (timeLeft > 0) {
@@ -260,6 +262,6 @@ function countdown() {
 	} else {
 		endGame();
 	}
-};
+}
 
 showRanking()
