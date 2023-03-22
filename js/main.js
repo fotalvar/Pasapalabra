@@ -54,8 +54,8 @@ playButton.addEventListener('click', () => {
         return;
     }
     if (username.value.length > 3) {
-        popUpWindow.style.display = "none";
-        gameBox.style.display = "flex";
+        popUpWindow.classList.add("pop-up-window-hide");
+        gameBox.classList.add("game-box-show");
         gameBox.classList.add("fadeIn");
         askBox.classList.add("slide-in-elliptic-top-fwd");
         audioPlayer.setAttribute('src', './audio/rosco.mp3');
@@ -167,12 +167,12 @@ const showNextUnanswerQuestion = () => {
 }
 
 const endGame = () => {
-    askBox.style.display = "none";
+    askBox.classList.add("ask-box-hidden");
     audioPlayer.pause();
     switchAudioPlayerStatus.textContent = "No";
     resultSoundEffects.setAttribute('src', './audio/end.mp3');
     resultSoundEffects.play();
-    resultBox.style.display = "flex";
+    resultBox.classList.add("result-box-shown");
     resultBox.classList.add("slide-in-elliptic-top-fwd");
 
     if (correctAnswers > 0) {
@@ -208,11 +208,11 @@ playAgainButton.addEventListener('click', () => {
       element.classList.remove('incorrect-answer-color');
       element.classList.remove('pasapalabra-answer-color');
     });
-    popUpWindow.style.display = "block"
+    popUpWindow.classList.remove("pop-up-window-hide");
     username.value = "";
-    askBox.style.display = "flex";
-    resultBox.style.display = "none";
-    gameBox.style.display = "none";
+    askBox.classList.remove("ask-box-hidden");
+    resultBox.classList.remove("result-box-shown");
+    gameBox.classList.remove("game-box-show");
     audioPlayer.setAttribute('src', './audio/intro.mp3');
     audioPlayer.pause();
     switchAudioPlayerStatus.textContent = "No";
@@ -239,14 +239,10 @@ const showRanking = () => {
 }
 
 const showWrongAnswerMessage = (failedWord) => {
-    wrongAnswerMessage.style.visibility = 'visible';
-    wrongAnswerMessage.style.padding = '30px';
-    wrongAnswerMessage.style.opacity = '0.8';
+    wrongAnswerMessage.classList.add("wrong-answer-box-failed");
     wrongAnswerMessage.textContent = `La respuesta correcta es ${failedWord.toUpperCase()}`;
     setTimeout(() => {
-        wrongAnswerMessage.style.visibility = 'hidden';
-        wrongAnswerMessage.style.padding = '2px';
-        wrongAnswerMessage.style.opacity = '0';
+        wrongAnswerMessage.classList.add("wrong-answer-box-timer");
     }, 3000);
     return;
 };

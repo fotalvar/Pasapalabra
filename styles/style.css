@@ -10,8 +10,13 @@ body {
 }
 
 .pop-up-window {
+    display: block;
     width: 100vw;
     height: 100vh;
+}
+
+.pop-up-window-hide {
+    display: none;
 }
 
 .title {
@@ -212,6 +217,10 @@ body {
     min-width: 450px;
 }
 
+.ask-box-hidden {
+    display: none;
+}
+
 .cuestion-container {
     text-align: center;
     font-size: 20px;
@@ -318,6 +327,10 @@ form {
     font-size: 20px;
 }
 
+.result-box-shown {
+    display: flex;
+}
+
 .play-again-button {
     border-radius: 10px;
     height: 50px;
@@ -363,6 +376,19 @@ form {
     color: white;
     transition: all 0.3s ease;
 }
+
+.wrong-answer-box-failed {
+visibility: visible;
+padding: 30px;
+opacity: 0.8;
+}
+
+.wrong-answer-box-timer {
+visibility: hidden;
+padding: 2px;
+opacity: 0;
+}
+
 
 .user-box p{
     margin: 0;
@@ -413,6 +439,10 @@ background-color: #b75d5d;
 background-color: #e7a63e;
 }
 
+.game-box-show{
+    display: flex;
+}
+
 @-webkit-keyframes fade-in-up {
     0% {
         opacity: 0;
@@ -449,6 +479,8 @@ background-color: #e7a63e;
     -webkit-animation-fill-mode: both;
     animation-fill-mode: both;
 }
+
+
 
 @-webkit-keyframes fade-in {
     0% {
