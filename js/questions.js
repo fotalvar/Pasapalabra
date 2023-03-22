@@ -60,7 +60,7 @@ const questions = [
         answer: [
             "esperanza",
             "empatía",
-            "exito"
+            "éxito"
         ],
         status: 0,
         question: [
@@ -242,7 +242,7 @@ const questions = [
         answer: [
             "reloj",
             "risa",
-            "rio"
+            "río"
         ],
         status: 0,
         question: [

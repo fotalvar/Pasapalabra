@@ -9,7 +9,7 @@ const userRanking = [
     },
     {
         username: "Miriam",
-        points: 6,
+        points: 16,
     }
     ,
     {
@@ -37,7 +37,7 @@ const audioPlayer = document.querySelector('.audio-player')
 const switchAudioPlayerStatus = document.querySelector('.switch-audio-player-status')
 const answersSoundEffects = document.querySelector('.answers-sound-effects')
 const resultSoundEffects = document.querySelector('.result-sound-effects')
-
+const wrongAnswerMessage = document.querySelector('.wrong-answer-box');
 
 let unanswerQuestion = 0;
 let questionPack = Math.floor(Math.random() * 3);
@@ -46,6 +46,7 @@ let incorrectAnswers = 0;
 let pasapalabraListAnswers = [];
 
 playButton.addEventListener('click', () => {
+    setTimeout(countdown, 1000);
     username.value = username.value.replace(/\s/g, '');
     playingUser.textContent = username.value;
     if (username.value <= 0) {
@@ -85,8 +86,10 @@ switchAudioPlayerStatus.addEventListener('click', () => {
 
 const sendAnswerButton = document.querySelector('.send-answer-button')
 
-sendAnswerButton.addEventListener('click', () => {
+sendAnswerButton.addEventListener('click', (event) => {
+    event.preventDefault();
     letterBox[unanswerQuestion].classList.remove("blink-2");
+    let failedWord = questions[unanswerQuestion].answer[questionPack];
     if (questions[unanswerQuestion].answer[questionPack] === (userAnswer.value).toLowerCase()) {
         letterBox[unanswerQuestion].style.backgroundColor = "#81a063";
         answersSoundEffects.setAttribute('src', './audio/correct.mp3');
@@ -95,6 +98,7 @@ sendAnswerButton.addEventListener('click', () => {
         correctAnswers++;
         correctAnswersCounter.textContent = correctAnswers
         userAnswer.value = "";
+        userAnswer.focus();
         showNextUnanswerQuestion()
         return;
     } else {
@@ -103,8 +107,10 @@ sendAnswerButton.addEventListener('click', () => {
         answersSoundEffects.play();
         questions[unanswerQuestion].status = 2;
         userAnswer.value = "";
+        userAnswer.focus();
         incorrectAnswers++;
         incorrectAnswersCounter.textContent = incorrectAnswers
+        showWrongAnswerMessage(failedWord);
         showNextUnanswerQuestion()
         return;
     }
@@ -112,13 +118,15 @@ sendAnswerButton.addEventListener('click', () => {
 
 const pasapalabraButton = document.querySelector('.pasapalabra-button')
 
-pasapalabraButton.addEventListener('click', () => {
+pasapalabraButton.addEventListener('click', (event) => {
+    event.preventDefault();
     letterBox[unanswerQuestion].classList.remove("blink-2");
     letterBox[unanswerQuestion].style.backgroundColor = "#e0a838";
     answersSoundEffects.setAttribute('src', './audio/pasapalabra.mp3');
     answersSoundEffects.play();
     questions[unanswerQuestion].status = 3;
     userAnswer.value = "";
+    userAnswer.focus();
     addToPasapalabraListAnswers()
     showNextUnanswerQuestion()
     return;
@@ -168,10 +176,12 @@ const endGame = () => {
     resultBox.classList.add("slide-in-elliptic-top-fwd");
 
     if (correctAnswers > 0) {
+        clearTimeout(countdownTimeout);
         resultTitle.textContent = `¡Felicidades ${username.value}, has acabado el Rosco!`;
         resultText.textContent = `Has acertado ${correctAnswers} respuestas y has fallado ${incorrectAnswers}. ¡Entras en el Ranking!`;
         addUserRanking();
     } else {
+        clearTimeout(countdownTimeout);
         resultTitle.textContent = `Ups!`;
         resultText.textContent = `${username.value} has fallado todas las preguntas y no entras al Ranking. ¡Seguro que la próxima saldra mejor!`
     }
@@ -181,6 +191,7 @@ const endGame = () => {
 const playAgainButton = document.querySelector('.play-again-button')
 
 playAgainButton.addEventListener('click', () => {
+    timeLeft = 300
     unanswerQuestion = 0;
     questionPack = Math.floor(Math.random() * 3);
     correctAnswers = 0;
@@ -224,5 +235,31 @@ const showRanking = () => {
     const rankingNames = document.querySelector(".ranking-names");
     rankingNames.innerHTML = rankingString;
 }
+
+const showWrongAnswerMessage = (failedWord) => {
+    wrongAnswerMessage.style.visibility = 'visible';
+    wrongAnswerMessage.style.padding = '30px';
+    wrongAnswerMessage.style.opacity = '0.8';
+    wrongAnswerMessage.textContent = `La respuesta correcta es ${failedWord.toUpperCase()}`;
+    setTimeout(() => {
+        wrongAnswerMessage.style.visibility = 'hidden';
+        wrongAnswerMessage.style.padding = '2px';
+        wrongAnswerMessage.style.opacity = '0';
+    }, 3000);
+    return;
+};
+
+let timeLeft = 300;
+let countdownTimeout;
+
+function countdown() {
+	timeLeft--;
+	document.querySelector(".seconds").innerHTML = String(timeLeft);
+	if (timeLeft > 0) {
+		countdownTimeout = setTimeout(countdown, 1000);
+	} else {
+		endGame();
+	}
+};
 
 showRanking()

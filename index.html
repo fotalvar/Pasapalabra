@@ -24,7 +24,7 @@
                     botón "Pasapalabra" y podrás contestarla más adelante.</p>
                 <p>¡Mucha suerte!</p>
             </div>
-            <input type="text" class="username" minlength="3" maxlength="8"  placeholder="Tu nombre">
+            <input type="text" class="username" minlength="3" maxlength="8" placeholder="Tu nombre">
             <button class="play-button">¡Comenzar!</button>
             <div class="ranking-box slide-in-left">
                 <p class="ranking-title">Ranking</p>
@@ -81,11 +81,13 @@
                 <p class="question">pregunta</p>
             </div>
             <div class="answers-row">
-                <input type="text" class="user-answer" autofocus>
-                <div class="answers-button-row">
-                    <button class="answer-button send-answer-button">Enviar respuesta</button>
-                    <button class="answer-button pasapalabra-button">Pasapalabra</button>
-                </div>
+                <form>
+                    <input type="text" class="user-answer" autofocus>
+                    <div class="answers-button-row">
+                        <button class="answer-button send-answer-button">Enviar respuesta</button>
+                        <button type="submit" class="answer-button pasapalabra-button">Pasapalabra</button>
+                    </div>
+                </form>
             </div>
         </div>
         <div class="result-box">
@@ -96,24 +98,42 @@
                 <p class="result-correct-anwsers">¿Quieres volver a jugar?</p>
                 <button class="play-again-button">Volver a jugar</button>
             </div>
-
+        </div>
+        <div class="wrong-answer-box">
+            <p>Repuesta incorrecta</p>
         </div>
         <table class="user-box">
             <tr>
-                <td><p>JUGADOR: </p></td>
-                <td><p class="playing-user">Usuario</p></td>
+                <td>
+                    <p>JUGADOR: </p>
+                </td>
+                <td>
+                    <p class="playing-user">Usuario</p>
+            </tr>
+            </td>
+            <tr>
+                <td>
+                    <p> TIEMPO: </p>
+                </td>
+                <td>
+                    <p class="seconds"></p>
+                </td>
             </tr>
         </table>
     </div>
     <table class="music-box">
         <audio class="answers-sound-effects"></audio>
         <tr>
-            <td><p>MÚSICA: </p></td>
-            <td><p class="switch-audio-player-status">No</p></td>
+            <td>
+                <p>MÚSICA: </p>
+            </td>
+            <td>
+                <p class="switch-audio-player-status">No</p>
+            </td>
         </tr>
     </table>
-<script type="text/javascript" src="./js/main.js"></script>
-<script type="text/javascript" src="./js/questions.js"></script>
+    <script type="text/javascript" src="./js/main.js"></script>
+    <script type="text/javascript" src="./js/questions.js"></script>
 </body>
 
 </html>
